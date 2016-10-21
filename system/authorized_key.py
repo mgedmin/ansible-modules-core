@@ -365,9 +365,6 @@ def parsekey(module, raw_key, rank=None):
 
     return (key, key_type, options, comment, rank)
 
-def readkeys(module, filename):
-    return parsekeys(module, readkeys(filename))
-
 def readfile(filename):
 
     if not os.path.isfile(filename):
@@ -391,9 +388,6 @@ def parsekeys(module, lines):
             # dict key to the line so it will be re-output later
             keys[line] = (line, 'skipped', None, None, rank_index)
     return keys
-
-def writekeys(module, filename, keys):
-    writefile(module, filename, serialize(keys))
 
 def writefile(module, filename, content):
 
